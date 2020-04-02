@@ -1,10 +1,13 @@
 * {
     margin: 0;
     padding: 0;
+    font-family: 'Lato', sans-serif;
+    font-weight: normal;
+    font-size: 14px;
 }
 
 .wrapper {
-    width: 728px;
+    width: 740px;
     height: 100%;
     margin: 0 auto;
     box-sizing: border-box;
@@ -20,9 +23,11 @@
     height: 100%;
     display: flex;
     flex-wrap: wrap;
+    box-sizing: border-box;
     background: #c9ccd3;
     padding: 5px;
     border: 1px solid #2e3138;
+    margin-bottom: 20px;
 }
 
 .button {
@@ -37,22 +42,22 @@
     border-radius: 5px;
     border: 1px solid #2e3138;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: bold;
     box-shadow: 1px 1px 0px 1px rgba(0,0,0,0.1);
     transition: all 0.2s;
 }
 
 .button:hover {
-    background: green;
-    opacity: 0.5;
+    background: red;
+    opacity: 0.7;
 }
 
-.active {
+.keyboard .active {
     transition: all 0.2s;
     background: red;
+    opacity: 1;
     border-radius: 20px;
-    box-shadow: 0px 0px 0px 1px rgba(0,0,0,0.4);
 }
 
 .backspace {

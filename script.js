@@ -332,6 +332,73 @@ const eng_lower = [
     "►",
     "Ctrl"
   ];
+
+  const eng_shift_lower = [
+    "~",
+    "!",
+    "@",
+    "#",
+    "$",
+    "%",
+    "^",
+    "&",
+    "*",
+    "(",
+    ")",
+    "_",
+    "+",
+    "Backspace",
+    "Tab",
+    "q",
+    "w",
+    "e",
+    "r",
+    "t",
+    "y",
+    "u",
+    "i",
+    "o",
+    "p",
+    "{",
+    "}",
+    "|",
+    "Del",
+    "CapsLock",
+    "a",
+    "s",
+    "d",
+    "f",
+    "g",
+    "h",
+    "j",
+    "k",
+    "l",
+    ":",
+    "&quot;",
+    "Enter",
+    "Shift",
+    "z",
+    "x",
+    "c",
+    "v",
+    "b",
+    "n",
+    "m",
+    "<",
+    ">",
+    "?",
+    "▲",
+    "Shift",
+    "Ctrl",
+    "Win",
+    "Alt",
+    " ",
+    "Alt",
+    "◄",
+    "▼",
+    "►",
+    "Ctrl"
+  ];
   
   const rus_shift = [
     "Ё",
@@ -399,6 +466,75 @@ const eng_lower = [
     "►",
     "Ctrl"
   ];
+
+  const rus_shift_lower= [
+    "ё",
+    "!",
+    "&quot;",
+    "№",
+    ";",
+    "%",
+    ":",
+    "?",
+    "*",
+    "(",
+    ")",
+    "_",
+    "+",
+    "Backspace",
+    "Tab",
+    "й",
+    "ц",
+    "у",
+    "к",
+    "е",
+    "н",
+    "г",
+    "ш",
+    "щ",
+    "з",
+    "х",
+    "ъ",
+    "/",
+    "Del",
+    "CapsLock",
+    "ф",
+    "ы",
+    "в",
+    "а",
+    "п",
+    "р",
+    "о",
+    "л",
+    "д",
+    "ж",
+    "э",
+    "Enter",
+    "Shift",
+    "я",
+    "ч",
+    "с",
+    "м",
+    "и",
+    "т",
+    "ь",
+    "б",
+    "ю",
+    ",",
+    "▲",
+    "Shift",
+    "Ctrl",
+    "Win",
+    "Alt",
+    " ",
+    "Alt",
+    "◄",
+    "▼",
+    "►",
+    "Ctrl"
+  ];
+
+
   
   const code = [
     "Backquote",
@@ -470,8 +606,8 @@ const eng_lower = [
   const main = `<main>
                 <div class="wrapper">
                 <textarea class="input" name="" id="input" cols="30" rows="10"></textarea>
-                    <p>Клавиатура создана в операционной системе Windows</p>
-                    <p class='language'>Для переключения языка комбинация: левый ctrl + alt</p>
+                    <p>Клавиатура создана в операционной системе Windows.</p>
+                    <p>Для переключения языка используйте комбинацию клавиш: Ctrl Left + Alt Left</p>
                 </div>
                 </main>`
 
@@ -483,10 +619,11 @@ let caps_lock = false;
 // Add keyboard in html page
 function render_keyboard() {
     document.querySelector('body').innerHTML = main;
-    let p = document.querySelector(".language");
+    let wrapper = document.querySelector(".wrapper");
+    let textarea = document.querySelector(".input");
     let keyboard = document.createElement("div");
     keyboard.classList.add("keyboard");
-    p.appendChild(keyboard);
+    wrapper.insertBefore(keyboard, textarea.nextSibling);
 
     eng_lower.forEach((value, index) => {
         let button = document.createElement("div");
@@ -522,6 +659,14 @@ function render_key(language) {
   });
 }
 
+function render_key_upper(language) {
+  language.forEach((key, i) => {
+    if (key.length == 1) {
+      bord[i].innerHTML = key.toUpperCase();
+    } else bord[i].innerHTML = key
+  });
+}
+
 
 // function render key value with load html
 function render(rus, eng) {
@@ -541,6 +686,8 @@ document.querySelector(".keyboard").addEventListener("mouseup", event => {
     case "ShiftLeft":
       event.target.classList.remove("active");
       render(rus_lower, eng_lower);
+      break;
+    case "CapsLock":
       break;
     default:
       event.target.classList.remove("active");
@@ -570,9 +717,21 @@ function key_down_click(code) {
         textarea.selectionStart = textarea.selectionEnd = cursorPosition;
       }
   }
+
+  function changeLanguage() {
+    button.classList.add("active");
+      let local = localStorage.getItem("lang");
+      if ((event.code == "AltLeft" && event.ctrlKey) || (event.code == "ControlLeft" && event.altKey)) {
+        if (local == "rus") {
+          render_key(eng_lower);
+          localStorage.setItem("lang", "eng");
+        } else {
+          render_key(rus_lower);
+          localStorage.setItem("lang", "rus");
+        }
+      }
+  }
   
-  //console.log(button.textContent.toLocaleUpperCase())
-  //console.log(textarea.value.indexOf('\n', start));
 
   switch (code) {
     case "Backspace":
@@ -601,7 +760,7 @@ function key_down_click(code) {
       }
       break;
     case "CapsLock":
-      if (caps_lock == false) {
+      if (!caps_lock) {
         button.classList.add("active");
         render(rus_upper, eng_upper);
         caps_lock = true;
@@ -616,17 +775,15 @@ function key_down_click(code) {
       break;
     case "ShiftLeft":
       button.classList.add("active");
-      if (caps_lock == true) {
-        render(rus_shift, eng_shift);
-      } else if (caps_lock == false){
-        render(rus_lower, eng_lower);
+      if (caps_lock) {
+        render(rus_shift_lower, eng_shift_lower);
       } else render(rus_shift, eng_shift);
       break;
     case "ShiftRight":
       button.classList.add("active");
       break;
     case "ControlLeft":
-      button.classList.add("active");
+      changeLanguage();
       break;
     case "ControlRight":
       button.classList.add("active");
@@ -635,31 +792,20 @@ function key_down_click(code) {
       button.classList.add("active");
       break;
     case "AltLeft":
-      button.classList.add("active");
-      let local = localStorage.getItem("lang");
-      if (event.code == "AltLeft" && event.ctrlKey) {
-        if (local == "rus") {
-          render_key(eng_lower);
-          localStorage.setItem("lang", "eng");
-        } else {
-          render_key(rus_lower);
-          localStorage.setItem("lang", "rus");
-        }
-      }
+      changeLanguage();
       break;
     case "AltRight":
         button.classList.add("active");
         break;
     case "ArrowUp":
-        button.classList.add("active");
-        if (textarea.value.indexOf('\n', start) != -1) {
-            let position = textarea.value.indexOf('\n', start);
-            console.log(position)
-            textarea.selectionStart = textarea.selectionEnd = position;
-        }
-        break
+      button.classList.add("active");
+      break
     case "ArrowDown":
         button.classList.add("active");
+        let position = textarea.value.indexOf('\n', start);
+        if (position != -1) {
+          textarea.selectionStart = textarea.selectionEnd = position + 1;
+        }
         break
     case "ArrowLeft":
         button.classList.add("active");
@@ -689,10 +835,8 @@ document.addEventListener("keyup", event => {
   switch (event.code) {
     case "ShiftLeft":
       button.classList.remove("active");
-      if (caps_lock == true) {
+      if (caps_lock) {
         render(rus_upper, eng_upper);
-      } else if (caps_lock == false){
-        render(rus_shift, eng_shift);
       } else render(rus_lower, eng_lower);
       break;
     case "CapsLock":
