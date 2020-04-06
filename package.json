@@ -1,0 +1,26 @@
+{
+  "name": "keyboard",
+  "version": "1.0.0",
+  "description": "virtual-keyboard",
+  "main": "script.js",
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^6.8.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/omirbeck/virtual-keyboard.git"
+  },
+  "keywords": [
+    "keyboard"
+  ],
+  "author": "Tulepov Omirbek",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/omirbeck/virtual-keyboard/issues"
+  },
+  "homepage": "https://github.com/omirbeck/virtual-keyboard#readme"
+}

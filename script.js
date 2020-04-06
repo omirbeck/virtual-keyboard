@@ -256,6 +256,7 @@ function key_down_click(code) {
         break;
     case "ArrowUp":
       button.classList.add("active");
+      if (start != 0) textarea.selectionStart = textarea.selectionEnd = start - 1;
       break
     case "ArrowDown":
         button.classList.add("active");
