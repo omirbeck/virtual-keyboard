@@ -1,52 +1,52 @@
-const eng_lower = [ "`", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-",
+const ENG_LOWER = [ "`", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-",
 "=", "Backspace", "Tab", "q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "[",
 "]", "\\", "Del", "CapsLock", "a", "s", "d", "f", "g", "h", "j", "k", "l", ";",
 "'", "Enter", "Shift", "z", "x", "c", "v", "b", "n", "m", ",", ".", "/", "▲",
 "Shift", "Ctrl", "Win", "Alt", " ", "Alt", "◄", "▼", "►", "Ctrl" ];
 
-const eng_upper = [ "`", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-", "=",
+const ENG_UPPER = [ "`", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-", "=",
 "Backspace", "Tab", "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P", "[", "]",
 "\\", "Del", "CapsLock", "A", "S", "D", "F", "G", "H", "J", "K", "L", ";", "'",
 "Enter", "Shift", "Z", "X", "C", "V", "B", "N", "M", ",", ".", "/", "▲",
 "Shift", "Ctrl", "Win", "Alt", " ", "Alt", "◄", "▼", "►", "Ctrl" ];
 
-const rus_lower = [ "ё", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-", "=",
+const RUS_LOWER = [ "ё", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-", "=",
 "Backspace", "Tab", "й", "ц", "у", "к", "е", "н", "г", "ш", "щ", "з", "х", "ъ",
 "\\", "Del", "CapsLock", "ф", "ы", "в", "а", "п", "р", "о", "л", "д", "ж", "э",
 "Enter", "Shift", "я", "ч", "с", "м", "и", "т", "ь", "б", "ю", ".", "▲",
 "Shift", "Ctrl", "Win", "Alt", " ", "Alt", "◄", "▼", "►", "Ctrl" ]; 
 
-const rus_upper = [ "Ё", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-", "=",
+const RUS_UPPER = [ "Ё", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-", "=",
 "Backspace", "Tab", "Й", "Ц", "У", "К", "Е", "Н", "Г", "Ш", "Щ", "З", "Х", "Ъ",
 "\\", "Del", "CapsLock", "Ф", "Ы", "В", "А", "П", "Р", "О", "Л", "Д", "Ж", "Э",
 "Enter", "Shift", "Я", "Ч", "С", "М", "И", "Т", "Ь", "Б", "Ю", ".", "▲",
 "Shift", "Ctrl", "Win", "Alt", " ", "Alt", "◄", "▼", "►", "Ctrl" ]; 
 
-const eng_shift = [ "~", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "+",
+const ENG_SHIFT = [ "~", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "+",
 "Backspace", "Tab", "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P", "{", "}",
 "|", "Del", "CapsLock", "A", "S", "D", "F", "G", "H", "J", "K", "L", ":",
 "&quot;", "Enter", "Shift", "Z", "X", "C", "V", "B", "N", "M", "<", ">", "?",
 "▲", "Shift", "Ctrl", "Win", "Alt", " ", "Alt", "◄", "▼", "►", "Ctrl" ]; 
 
-const eng_shift_lower = [ "~", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_",
+const ENG_SHIFT_LOWER = [ "~", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_",
 "+", "Backspace", "Tab", "q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "{",
 "}", "|", "Del", "CapsLock", "a", "s", "d", "f", "g", "h", "j", "k", "l", ":",
 "&quot;", "Enter", "Shift", "z", "x", "c", "v", "b", "n", "m", "<", ">", "?",
 "▲", "Shift", "Ctrl", "Win", "Alt", " ", "Alt", "◄", "▼", "►", "Ctrl" ]; 
 
-const rus_shift = [ "Ё", "!", "&quot;", "№", ";", "%", ":", "?", "*", "(", ")", "_",
+const RUS_SHIFT = [ "Ё", "!", "&quot;", "№", ";", "%", ":", "?", "*", "(", ")", "_",
 "+", "Backspace", "Tab", "Й", "Ц", "У", "К", "Е", "Н", "Г", "Ш", "Щ", "З", "Х",
 "Ъ", "/", "Del", "CapsLock", "Ф", "Ы", "В", "А", "П", "Р", "О", "Л", "Д", "Ж",
 "Э", "Enter", "Shift", "Я", "Ч", "С", "М", "И", "Т", "Ь", "Б", "Ю", ",", "▲",
 "Shift", "Ctrl", "Win", "Alt", " ", "Alt", "◄", "▼", "►", "Ctrl" ]; 
 
-const rus_shift_lower= [ "ё", "!", "&quot;", "№", ";", "%", ":", "?", "*", "(", ")",
+const RUS_SHIFT_LOWER= [ "ё", "!", "&quot;", "№", ";", "%", ":", "?", "*", "(", ")",
 "_", "+", "Backspace", "Tab", "й", "ц", "у", "к", "е", "н", "г", "ш", "щ", "з",
 "х", "ъ", "/", "Del", "CapsLock", "ф", "ы", "в", "а", "п", "р", "о", "л", "д",
 "ж", "э", "Enter", "Shift", "я", "ч", "с", "м", "и", "т", "ь", "б", "ю", ",",
 "▲", "Shift", "Ctrl", "Win", "Alt", " ", "Alt", "◄", "▼", "►", "Ctrl" ];
 
-const code = [ "Backquote", "Digit1", "Digit2", "Digit3", "Digit4", "Digit5",
+const CODE = [ "Backquote", "Digit1", "Digit2", "Digit3", "Digit4", "Digit5",
 "Digit6", "Digit7", "Digit8", "Digit9", "Digit0", "Minus", "Equal", "Backspace",
 "Tab", "KeyQ", "KeyW", "KeyE", "KeyR", "KeyT", "KeyY", "KeyU", "KeyI", "KeyO",
 "KeyP", "BracketLeft", "BracketRight", "Backslash", "Delete", "CapsLock",
@@ -62,34 +62,38 @@ const main = `<main>
                     <p>Клавиатура создана в операционной системе Windows.</p>
                     <p>Для переключения языка используйте комбинацию клавиш: Ctrl Left + Alt Left</p>
               </div>
-              </main>`
-
+              </main>`;
+const LEFT_SHIFT = 42;
+const RIGHT_SHIFT = 54;
+const RUS = "rus";
+const ENG = "eng";
+const LANGUAGE = "lang";
 let caps_lock = false;
 
 // Add keyboard in html page
 function render_keyboard() {
-    document.querySelector('body').innerHTML = main;
+    document.querySelector("body").innerHTML = main;
     let wrapper = document.querySelector(".wrapper");
     let textarea = document.querySelector(".input");
     let keyboard = document.createElement("div");
     keyboard.classList.add("keyboard");
     wrapper.insertBefore(keyboard, textarea.nextSibling);
 
-    eng_lower.forEach((value, index) => {
+    ENG_LOWER.forEach((value, index) => {
         let button = document.createElement("div");
         button.classList.add("button");
-        button.classList.add(`${code[index]}`);
-        if (value == "Backspace" || value == "Tab" || value == "Del") {
+        button.classList.add(`${CODE[index]}`);
+        if (value === "Backspace" || value === "Tab" || value === "Del") {
           button.classList.add(`${value.toLowerCase()}`);
           keyboard.appendChild(button);
-        } else if (value == "CapsLock" || index == 42) {
+        } else if (value === "CapsLock" || index === LEFT_SHIFT) {
           button.classList.add("left-btn");
           keyboard.appendChild(button);
-        } else if (value == "Enter" || index == 54) {
+        } else if (value === "Enter" || index === RIGHT_SHIFT) {
           button.classList.add("right-btn");
           button.value = value;
           keyboard.appendChild(button);
-        } else if (value == " ") {
+        } else if (value === " ") {
           button.classList.add("space");
           keyboard.appendChild(button);
         } else keyboard.appendChild(button);
@@ -100,7 +104,7 @@ render_keyboard();
 
 let bord = document.querySelectorAll(".button");
 
-render(rus_lower, eng_lower);
+render(RUS_LOWER, ENG_LOWER);
 
 // function add key value for keyboard
 function render_key(language) {
@@ -109,25 +113,18 @@ function render_key(language) {
   });
 }
 
-function render_key_upper(language) {
-  language.forEach((key, i) => {
-    if (key.length == 1) {
-      bord[i].innerHTML = key.toUpperCase();
-    } else bord[i].innerHTML = key
-  });
-}
-
-
 // function render key value with load html
 function render(rus, eng) {
-  let local = localStorage.getItem("lang");
-  local == "rus" ? render_key(rus) : render_key(eng);
+  let locale = localStorage.getItem(LANGUAGE);
+  locale === RUS ? render_key(rus) : render_key(eng);
 }
 
 // Insert the text in text area using the mouse
 document.querySelector(".keyboard").addEventListener("mousedown", event => {
-  let clas = event.target.classList[1];
-  key_down_click(clas);
+  if (event.target.matches(".button")) {
+    let clas = event.target.classList[1];
+    key_down_click(clas);
+  }
 });
 
 document.querySelector(".keyboard").addEventListener("mouseup", event => {
@@ -135,7 +132,7 @@ document.querySelector(".keyboard").addEventListener("mouseup", event => {
   switch (clas) {
     case "ShiftLeft":
       event.target.classList.remove("active");
-      render(rus_lower, eng_lower);
+      render(RUS_LOWER, ENG_LOWER);
       break;
     case "CapsLock":
       break;
@@ -170,22 +167,22 @@ function key_down_click(code) {
 
   function changeLanguage() {
     button.classList.add("active");
-      let local = localStorage.getItem("lang");
-      if ((event.code == "AltLeft" && event.ctrlKey) || (event.code == "ControlLeft" && event.altKey)) {
-        if (local == "rus") {
+      let locale = localStorage.getItem(LANGUAGE);
+      if ((event.code === "AltLeft" && event.ctrlKey) || (event.code === "ControlLeft" && event.altKey)) {
+        if (locale === RUS) {
           if (!caps_lock) {
-            render_key(eng_lower);
+            render_key(ENG_LOWER);
           } else {
-            render_key(eng_upper);
+            render_key(ENG_UPPER);
           }
-          localStorage.setItem("lang", "eng");
+          localStorage.setItem(LANGUAGE, ENG);
         } else {
           if (!caps_lock) {
-            render_key(rus_lower);
+            render_key(RUS_LOWER);
           } else {
-            render_key(rus_upper);
+            render_key(RUS_UPPER);
           }
-          localStorage.setItem("lang", "rus");
+          localStorage.setItem(LANGUAGE, RUS);
         }
       }
   }
@@ -204,7 +201,7 @@ function key_down_click(code) {
       }
       break;
     case "Tab":
-      writeLetters('    ', start + 4);
+      writeLetters("    ", start + 4);
       break;
     case "Delete":
       button.classList.add("active");
@@ -219,22 +216,22 @@ function key_down_click(code) {
     case "CapsLock":
       if (!caps_lock) {
         button.classList.add("active");
-        render(rus_upper, eng_upper);
+        render(RUS_UPPER, ENG_UPPER);
         caps_lock = true;
       } else {
         button.classList.remove("active");
-        render(rus_lower, eng_lower);
+        render(RUS_LOWER, ENG_LOWER);
         caps_lock = false;
       }
       break;
     case "Enter":
-      writeLetters('\n', start + 1)
+      writeLetters("\n", start + 1);
       break;
     case "ShiftLeft":
       button.classList.add("active");
       if (caps_lock) {
-        render(rus_shift_lower, eng_shift_lower);
-      } else render(rus_shift, eng_shift);
+        render(RUS_SHIFT_LOWER, ENG_SHIFT_LOWER);
+      } else render(RUS_SHIFT, ENG_SHIFT);
       break;
     case "ShiftRight":
       button.classList.add("active");
@@ -257,14 +254,14 @@ function key_down_click(code) {
     case "ArrowUp":
       button.classList.add("active");
       if (start != 0) textarea.selectionStart = textarea.selectionEnd = start - 1;
-      break
+      break;
     case "ArrowDown":
         button.classList.add("active");
-        let position = textarea.value.indexOf('\n', start);
+        let position = textarea.value.indexOf("\n", start);
         if (position != -1) {
           textarea.selectionStart = textarea.selectionEnd = position + 1;
         }
-        break
+        break;
     case "ArrowLeft":
         button.classList.add("active");
         if (start != 0) textarea.selectionStart = textarea.selectionEnd = start - 1;
@@ -297,8 +294,8 @@ document.addEventListener("keyup", event => {
     case "ShiftLeft":
       button.classList.remove("active");
       if (caps_lock) {
-        render(rus_upper, eng_upper);
-      } else render(rus_lower, eng_lower);
+        render(RUS_UPPER, ENG_UPPER);
+      } else render(RUS_LOWER, ENG_LOWER);
       break;
     case "CapsLock":
       break;
